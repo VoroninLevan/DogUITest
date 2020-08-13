@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <properties>
     <profile>firefox</profile> <!--Accepted values: 'chrome' / 'firefox'-->
-    <destinations>
-        <from_city>London</from_city>
-        <from_airport>LHR</from_airport>
-        <to_city>Frankfurt</to_city>
-        <to_airport>FRA</to_airport>
-    </destinations>
-    <passengers>
-        <adults>2</adults>
-        <children>0</children>
-        <infants>0</infants>
-    </passengers>
-    <price>
-        <flight_cost>629</flight_cost>
-    </price>
+    <fullscreen>False</fullscreen>
+    <width>1000</width>
+    <height>700</height>
 </properties>

@@ -8,10 +8,15 @@ from selenium import webdriver
 class Runner(unittest.TestCase):
 
     def setUp(self):
+        true = 'True'
         if px.get_profile() == "chrome":
             self.driver = webdriver.Chrome()
         else:
             self.driver = webdriver.Firefox()
+        if px.get_full_screen() in true:
+            self.driver.fullscreen_window()
+        else:
+            self.driver.set_window_size(px.get_width(), px.get_height())
         self.driver.get('https://dog.ceo/dog-api/')
 
     def test_documentation_path_links(self):
@@ -97,6 +102,11 @@ class Runner(unittest.TestCase):
 
     def test_email_form(self):
         """
+        For testing email text field
+        NOTE: Due to email field does not have any restrictions/checks for, e.g. specific patterns, special characters
+        (looks like length as well) and due to the value passes on to the external web page which is out of scope -
+        there are no visible scenarios here to test, except of pen testing which is out of scope of the task.
+        So this is a dummy test for testing the text field.
 
         :return:
         """
