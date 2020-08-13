@@ -16,6 +16,10 @@ class Runner(unittest.TestCase):
 
     def test_documentation_path_links(self):
         """
+        Test navigates through the 'Documentation' tabs and verifies the links to tabs by asserting
+        expected titles against given ones.
+        NOTE: As the application does not contain complicated workflow and URLs, it is possible to assert the URLs
+        instead.
 
         :return:
         """
@@ -52,6 +56,11 @@ class Runner(unittest.TestCase):
 
     def test_menu_path_links(self):
         """
+        Test navigates through the menu options and verifies the page links by asserting
+        expected titles against given ones.
+        NOTE: As the application does not contain complicated workflow and URLs, it is possible to assert the URLs
+        instead.
+        NOTE: As the Title page has inner tags in title, it was decided to use substring for assertion
 
         :return:
         """

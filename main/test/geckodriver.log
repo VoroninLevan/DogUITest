@@ -278,3 +278,24 @@ console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Err
 1597278189562	Marionette	WARN	TLS certificate errors will be ignored for this session
 JavaScript error: , line 0: uncaught exception: undefined
 1597278193432	Marionette	INFO	Stopped listening on port 40309
+1597279542106	geckodriver	INFO	Listening on 127.0.0.1:46751
+1597279542110	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileTz5KEk"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1597279543793	Marionette	INFO	Listening on port 34733
+1597279543814	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: uncaught exception: undefined
+1597279548636	Marionette	INFO	Stopped listening on port 34733
+1597279550104	geckodriver	INFO	Listening on 127.0.0.1:54329
+1597279550106	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileUGUGMU"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1597279551840	Marionette	INFO	Listening on port 32803
+1597279551914	Marionette	WARN	TLS certificate errors will be ignored for this session
+1597279553325	Marionette	INFO	Stopped listening on port 32803
+1597279554687	geckodriver	INFO	Listening on 127.0.0.1:52383
+1597279554690	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileiuypvf"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1597279556442	Marionette	INFO	Listening on port 37931
+1597279556503	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: uncaught exception: undefined
+1597279560610	Marionette	INFO	Stopped listening on port 37931
