@@ -2,6 +2,6 @@
 <properties>
     <profile>firefox</profile> <!--Accepted values: 'chrome' / 'firefox'-->
     <fullscreen>False</fullscreen>
-    <width>1000</width>
+    <width>1400</width>
     <height>700</height>
 </properties>
