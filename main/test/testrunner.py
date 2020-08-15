@@ -1,21 +1,32 @@
+import json
 import unittest
 import xmlrunner as xmlrunner
 import main.parserxml as px
 from main.page.dogmainpage import DogMainPage
+from main.page.jsonresponsepage import JsonResponsePage
 from selenium import webdriver
 
 
 class Runner(unittest.TestCase):
 
     def setUp(self):
+        true = 'True'
         if px.get_profile() == "chrome":
             self.driver = webdriver.Chrome()
         else:
             self.driver = webdriver.Firefox()
+        if px.get_full_screen() in true:
+            self.driver.fullscreen_window()
+        else:
+            self.driver.set_window_size(px.get_width(), px.get_height())
         self.driver.get('https://dog.ceo/dog-api/')
 
     def test_documentation_path_links(self):
         """
+        Test navigates through the 'Documentation' tabs and verifies the links to tabs by asserting
+        expected titles against given ones.
+        NOTE: As the application does not contain complicated workflow and URLs, it is possible to assert the URLs
+        instead.
 
         :return:
         """
@@ -52,6 +63,11 @@ class Runner(unittest.TestCase):
 
     def test_menu_path_links(self):
         """
+        Test navigates through the menu options and verifies the page links by asserting
+        expected titles against given ones.
+        NOTE: As the application does not contain complicated workflow and URLs, it is possible to assert the URLs
+        instead.
+        NOTE: As the Title page has inner tags in title, it was decided to use substring for assertion
 
         :return:
         """
@@ -88,13 +104,48 @@ class Runner(unittest.TestCase):
 
     def test_email_form(self):
         """
+        For testing email text field
+        NOTE: Due to email field does not have any restrictions/checks for, e.g. specific patterns, special characters
+        (looks like length as well) and due to the value passes on to the external web page which is out of scope -
+        there are no visible scenarios here to test, except of pen testing which is out of scope of the task.
+        So this is a dummy test for testing the text field.
 
         :return:
         """
         dummy_email = 'dummy@d.c'
         main_page = DogMainPage(self.driver)
         main_page.populate_email(dummy_email)
-        self.assertEqual(dummy_email, main_page.get_value_email(), 'Expected conditions failed. Expected ')
+        self.assertEqual(dummy_email, main_page.get_value_email(), 'Expected conditions failed.')
+        
+    def test_multiple_random_image_entries_api(self):
+        # Test data
+        url = 'https://dog.ceo/api/breeds/image/random/'
+        expected_number_of_entries = 3
+        # Navigate to response page -> collect raw data (str)
+        json_response_page = JsonResponsePage(self.driver, url + str(expected_number_of_entries))
+        json_response_page.switch_to_raw_data()
+        raw_data = json_response_page.get_raw_json()
+        # Load raw data as dict, assert number of entries against expected number
+        json_dict = json.loads(raw_data)
+        number_of_entries = len(json_dict['message'])
+        self.assertEqual(expected_number_of_entries, number_of_entries,
+                         '%s number of entries expected, instead %s found' %
+                         (expected_number_of_entries, number_of_entries))
+
+    def test_by_sub_breed_entries_api(self):
+        # Test data
+        url = 'https://dog.ceo/api/breed/hound/list'
+        expected_entries = 7
+        # Navigate to response page -> collect raw data (str)
+        json_response_page = JsonResponsePage(self.driver, url)
+        json_response_page.switch_to_raw_data()
+        raw_data = json_response_page.get_raw_json()
+        # Load raw data as dict, assert number of entries against expected number
+        json_dict = json.loads(raw_data)
+        number_of_entries = len(json_dict['message'])
+        self.assertEqual(expected_entries, number_of_entries,
+                         '%s number of entries expected, instead %s found. The amount of entries might be changed.' %
+                         (expected_entries, number_of_entries))
 
     def tearDown(self):
         self.driver.close()

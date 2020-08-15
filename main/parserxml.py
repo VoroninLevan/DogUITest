@@ -17,73 +17,28 @@ def get_profile():
     return root[0].text
 
 
-def get_from_city():
+def get_full_screen():
     """
-    Retrieves and returns the <from_city> value
+    Retrieves and returns the <fullscreen> value
 
     :return: str
     """
-    return root[1][0].text
+    return root[1].text
 
 
-def get_from_airport():
+def get_width():
     """
-    Retrieves and returns the <from_airport> value
+    Retrieves and returns the <width> value
 
     :return: str
     """
-    return root[1][1].text
+    return root[2].text
 
 
-def get_to_city():
+def get_height():
     """
-    Retrieves and returns the <to_city> value
+    Retrieves and returns the <height> value
 
     :return: str
     """
-    return root[1][2].text
-
-
-def get_to_airport():
-    """
-    Retrieves and returns the <to_airport> value
-
-    :return: str
-    """
-    return root[1][3].text
-
-
-def get_adults():
-    """
-    Retrieves and returns the <adults> value
-
-    :return: str
-    """
-    return root[2][0].text
-
-
-def get_children():
-    """
-    Retrieves and returns the <children> value
-
-    :return: str
-    """
-    return root[2][1].text
-
-
-def get_infants():
-    """
-    Retrieves and returns the <infants> value
-
-    :return: str
-    """
-    return root[2][2].text
-
-
-def get_assertion_price():
-    """
-    Retrieves and returns the <flight_cost> value
-
-    :return: str
-    """
-    return root[3][0].text
+    return root[3].text
