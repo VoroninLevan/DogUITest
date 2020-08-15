@@ -33,6 +33,6 @@ Parses parameter.xml file
 **NOTE**
 
 In order to use the app, geckodriver/chromedriver executables should be in system path.
-`data/drivers/` contains the following versions:
+`data/drivers/` contains the following driver versions which might be used for installation:
 * geckodriver - v0.27.0 (linux)
 * chromedriver - v84.0.4147.30 (linux)
