@@ -31,30 +31,30 @@ class Runner(unittest.TestCase):
         :return:
         """
         main_page = DogMainPage(self.driver)
-        doc_page = main_page.navigate_documentation()
+        dog_page = main_page.navigate_documentation()
         # Switch to 'List all breeds' tab
-        all_breeds_page = doc_page.switch_tab(doc_page.ALL_BREEDS)
+        all_breeds_page = dog_page.switch_tab(dog_page.ALL_BREEDS)
         all_breeds_expected = all_breeds_page.get_expected_header()
         all_breeds_header = all_breeds_page.get_header()
         # Assert the title to verify the page
         self.assertEqual(all_breeds_expected, all_breeds_header,
                          ('%s expected, instead found: %s. Page is wrong' % (all_breeds_expected, all_breeds_header)))
         # Switch to 'Random image' tab
-        random_page = doc_page.switch_tab(doc_page.RANDOM)
+        random_page = dog_page.switch_tab(dog_page.RANDOM)
         random_expected_header = random_page.get_expected_header()
         random_header = random_page.get_header()
         # Assert the title to verify the page
         self.assertEqual(random_expected_header, random_header,
                          ('%s expected, instead found: %s. Page is wrong' % (random_expected_header, random_header)))
         # Switch to 'By breed' tab
-        breed_page = doc_page.switch_tab(doc_page.BREED)
+        breed_page = dog_page.switch_tab(dog_page.BREED)
         breed_expected_header = breed_page.get_expected_header()
         breed_header = breed_page.get_header()
         # Assert the title to verify the page
         self.assertEqual(breed_expected_header, breed_header,
                          ('%s expected, instead found: %s. Page is wrong' % (breed_expected_header, breed_header)))
         # Switch to 'By sub-breed' tab
-        sub_breed_page = doc_page.switch_tab(doc_page.SUB_BREED)
+        sub_breed_page = dog_page.switch_tab(dog_page.SUB_BREED)
         sub_expected_header = sub_breed_page.get_expected_header()
         sub_header = sub_breed_page.get_header()
         # Assert the title to verify the page

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <properties>
     <profile>firefox</profile> <!--Accepted values: 'chrome' / 'firefox'-->
-    <fullscreen>False</fullscreen>
-    <width>1400</width>
+    <fullscreen>True</fullscreen> <!--Accepted values: 'True' / 'False'-->
+    <width>1000</width>
     <height>700</height>
 </properties>
