@@ -17,6 +17,7 @@ class DogMainPage(BasePage):
 
         :return: DogTitlePage
         """
+        self.__trigger_hidden_menu()
         BasePage.click(self, self.XPATH, "//img[@class='logo']")
         return DogTitlePage(self.driver)
 
@@ -26,6 +27,7 @@ class DogMainPage(BasePage):
 
         :return: DogDocumentationPage
         """
+        self.__trigger_hidden_menu()
         BasePage.click(self, self.XPATH, "//a[@href='/dog-api/documentation']")
         return DogDocumentationPage(self.driver)
 
@@ -35,6 +37,7 @@ class DogMainPage(BasePage):
 
         :return: DogBreedListPage
         """
+        self.__trigger_hidden_menu()
         BasePage.click(self, self.XPATH, "//a[@href='/dog-api/breeds-list']")
         return DogBreedListPage(self.driver)
 
@@ -44,6 +47,7 @@ class DogMainPage(BasePage):
 
         :return: DogAboutPage
         """
+        self.__trigger_hidden_menu()
         BasePage.click(self, self.XPATH, "//a[@href='/dog-api/about']")
         return DogAboutPage(self.driver)
 
@@ -63,6 +67,16 @@ class DogMainPage(BasePage):
         :return:
         """
         BasePage.click(self, self.ID, "mc-embedded-subscribe")
+
+    def __trigger_hidden_menu(self):
+        """
+        Triggers hidden mobile menu if it is exists on the page
+
+        :return:
+        """
+        class_name = 'mobile-menu'
+        if self.is_element_exists(self.CLASS_NAME, class_name):
+            self.click(self.CLASS_NAME, class_name)
 
     def get_value_email(self):
         """
@@ -110,7 +124,7 @@ class DogDocumentationPage(DogMainPage):
 
         :return: DogDocumentationAllBreedsPage
         """
-        DogMainPage.click(self, self.XPATH, "//a[@href='/dog-api/documentation']")
+        DogMainPage.click(self, self.XPATH, "//ul[@class='endpoints-list']//a[@href='/dog-api/documentation']")
         return DogDocumentationAllBreedsPage(self.driver)
 
     def __navigate_to_random(self):
@@ -119,7 +133,7 @@ class DogDocumentationPage(DogMainPage):
 
         :return: DogDocumentationRandomPage
         """
-        DogMainPage.click(self, self.XPATH, "//a[@href='/dog-api/documentation/random']")
+        DogMainPage.click(self, self.XPATH, "//ul[@class='endpoints-list']//a[@href='/dog-api/documentation/random']")
         return DogDocumentationRandomPage(self.driver)
 
     def __navigate_to_breed(self):
@@ -128,7 +142,7 @@ class DogDocumentationPage(DogMainPage):
 
         :return: DogDocumentationByBreedPage
         """
-        DogMainPage.click(self, self.XPATH, "//a[@href='/dog-api/documentation/breed']")
+        DogMainPage.click(self, self.XPATH, "//ul[@class='endpoints-list']//a[@href='/dog-api/documentation/breed']")
         return DogDocumentationByBreedPage(self.driver)
 
     def __navigate_to_sub_breed(self):
@@ -137,7 +151,7 @@ class DogDocumentationPage(DogMainPage):
 
         :return: DogDocumentationBySubBreedPage
         """
-        DogMainPage.click(self, self.XPATH, "//a[@href='/dog-api/documentation/sub-breed']")
+        DogMainPage.click(self, self.XPATH, "//ul[@class='endpoints-list']//a[@href='/dog-api/documentation/sub-breed']")
         return DogDocumentationBySubBreedPage(self.driver)
 
     def __navigate_to_breed_list(self):
@@ -146,8 +160,8 @@ class DogDocumentationPage(DogMainPage):
 
         :return: None
         """
-        DogMainPage.click(self, self.XPATH, "//a[@href='/dog-api/breed-list']")
-        return None
+        DogMainPage.click(self, self.XPATH, "//ul[@class='endpoints-list']//a[@href='/dog-api/breed-list']")
+        return None  # Must return page object
 
     def switch_tab(self, option):
         """
